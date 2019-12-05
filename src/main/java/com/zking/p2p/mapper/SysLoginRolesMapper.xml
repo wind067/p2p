@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zking.p2p.mapper.SysLoginRolesMapper" >
+  <resultMap id="BaseResultMap" type="com.zking.p2p.model.SysLoginRoles" >
+    <constructor >
+      <idArg column="slrid" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="slrulid" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="slsrid" jdbcType="BIGINT" javaType="java.lang.Long" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    slrid, slrulid, slsrid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_sys_login_roles
+    where slrid = #{slrid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_sys_login_roles
+    where slrid = #{slrid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.zking.p2p.model.SysLoginRoles" >
+    insert into t_sys_login_roles (slrid, slrulid, slsrid
+      )
+    values (#{slrid,jdbcType=BIGINT}, #{slrulid,jdbcType=BIGINT}, #{slsrid,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zking.p2p.model.SysLoginRoles" >
+    insert into t_sys_login_roles
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="slrid != null" >
+        slrid,
+      </if>
+      <if test="slrulid != null" >
+        slrulid,
+      </if>
+      <if test="slsrid != null" >
+        slsrid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="slrid != null" >
+        #{slrid,jdbcType=BIGINT},
+      </if>
+      <if test="slrulid != null" >
+        #{slrulid,jdbcType=BIGINT},
+      </if>
+      <if test="slsrid != null" >
+        #{slsrid,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zking.p2p.model.SysLoginRoles" >
+    update t_sys_login_roles
+    <set >
+      <if test="slrulid != null" >
+        slrulid = #{slrulid,jdbcType=BIGINT},
+      </if>
+      <if test="slsrid != null" >
+        slsrid = #{slsrid,jdbcType=BIGINT},
+      </if>
+    </set>
+    where slrid = #{slrid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zking.p2p.model.SysLoginRoles" >
+    update t_sys_login_roles
+    set slrulid = #{slrulid,jdbcType=BIGINT},
+      slsrid = #{slsrid,jdbcType=BIGINT}
+    where slrid = #{slrid,jdbcType=BIGINT}
+  </update>
+</mapper>
