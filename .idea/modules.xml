@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/p2p.iml" filepath="$PROJECT_DIR$/p2p.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../shiro-project/shiro-project.iml" filepath="$PROJECT_DIR$/../shiro-project/shiro-project.iml" />
     </modules>
   </component>
 </project>
